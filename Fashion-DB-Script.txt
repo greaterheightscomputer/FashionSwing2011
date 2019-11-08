@@ -1,0 +1,143 @@
+create database FashionDB;
+
+use FashionDB;
+
+create table Styles 
+(
+    	cStyleId  char(25) primary key,
+    	vStyleName varchar(55),
+	vStyleType Varchar(30),
+	dPrice Decimal(10,2) not null,
+	vImage Varchar(100)
+);
+
+Create Table Customers
+(
+	cCustomerId Char(25) Primary Key,
+	vFirstName Varchar(70),
+	vLastName Varchar(70),
+	vAddress Varchar(200),
+	cGender Char(10),
+	cPhone Char(17),
+	vEmail Varchar(150),
+	vState Varchar(100),
+	VCountry Varchar(100)
+);
+
+create table Trousers 
+(
+	cTrouserId Char(25) Primary Key,
+    	cCustomerId char(25) References Customers (cCustomerId),    	
+        cLength char(5) not null, 
+        cThight char(5) not null,
+        cWaist  char(5) not null,
+        cLap char(5) not null,
+        cKnee char(5) not null,
+        cHip char(5) not null,
+        cBottom char(5) not null,
+        cFlap char(5) not null,
+        cStyleId  char(25) References Styles (cStyleId),
+	iNumber int,
+        dDeposit Decimal(10,2) not null,
+        dBalance Decimal(10,2) not null,
+        dTotalAmount Decimal(10,2)not null,
+	dDate Date not null,
+        dDateofCollection Date not null
+	
+);
+
+
+create table Shirts 
+(
+	cShirtId Char(25) Primary Key,
+    	cCustomerId char(25) References Customers (cCustomerId),    	
+        cLength char(5) not null, 
+        cWaist char(5) not null,
+        cBack  char(5) not null,
+        cSleeve char(5) not null,
+        cNeck char(5) not null,
+        cHip char(5) not null,
+        cBurst char(5) not null,
+        cAS char(5) not null,
+	cArmhole Char(5),
+        cStyleId  char(25) References Styles (cStyleId),
+	iNumber int,
+        dDeposit Decimal(10,2) not null,
+        dBalance Decimal(10,2) not null,
+        dTotalAmount Decimal(10,2)not null,
+	dDate Date not null,
+        dDateofCollection Date not null
+	
+);
+
+create table Jackets 
+(
+	cJacketId Char(25) Primary Key,
+    	cCustomerId char(25) References Customers (cCustomerId),    	
+        cLength char(5) not null,
+	cElbow Char(5),
+	cChest Char(5), 
+        cWaist char(5) not null,
+        cSleeve char(5) not null,
+        cRS char(5) not null,
+        cHip char(5) not null,
+        cS char(5) not null,
+        cBack char(5) not null,
+        cArmhole Char(5),
+        cStyleId  char(25) References Styles (cStyleId),
+	iNumber int,
+        dDeposit Decimal(10,2) not null,
+        dBalance Decimal(10,2) not null,
+        dTotalAmount Decimal(10,2)not null,
+	dDate Date not null,
+        dDateofCollection Date not null
+	
+);
+
+create table Natives 
+(
+	cNativeId Char(25) Primary Key,
+    	cCustomerId char(25) References Customers (cCustomerId),    	
+        cLength char(5) not null,
+	cShoulder Char(5),
+        cSleeve char(5) not null,
+        cRS char(5) not null,
+        cBack char(5) not null,
+        cThight Char(5),
+	cBottom Char(5),
+	cNeck Char(5),
+	cBurst Char(5),
+        cStyleId  char(25) References Styles (cStyleId),
+	iNumber int,
+        dDeposit Decimal(10,2) not null,
+        dBalance Decimal(10,2) not null,
+        dTotalAmount Decimal(10,2)not null,
+	dDate Date not null,
+        dDateofCollection Date not null
+	
+);
+
+Create Table AutoIds
+(
+    cAutoId Char(10) Primary Key,
+    vTableName Varchar(30),
+    iStatus Int
+);
+
+Create Table SMSUsers
+(
+    cUsername Char(30),
+    cPassword Char(30),
+    iStatus Int
+);
+
+INSERT INTO SMSUsers VALUES ('brean','tech',1);
+
+INSERT INTO AutoIds VALUES ('A0001','Styles',1);
+INSERT INTO AutoIds VALUES ('A0002','Customers',1);
+INSERT INTO AutoIds VALUES ('A0003','Trousers',1);
+INSERT INTO AutoIds VALUES ('A0004','Shirts',1);
+INSERT INTO AutoIds VALUES ('A0005','Jackets',1);
+INSERT INTO AutoIds VALUES ('A0006','Natives',1);
+
+

@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Native" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<style name="Title" isDefault="false" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" isDefault="false" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" isDefault="false" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" isDefault="false" fontName="Arial" fontSize="12"/>
+	<style name="Row" isDefault="false" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style isDefault="false" style="Row" backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="nativeId" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     natives.cNativeId AS trousers_cTrouserId,
+     natives.cLength AS trousers_cLength,
+     natives.cShoulder AS trousers_cThight,
+     natives.cSleeve AS trousers_cWaist,
+     natives.cRS AS trousers_cLap,
+     natives.cBack AS trousers_cKnee,
+     natives.cThight AS trousers_cHip,
+     natives.cBottom AS trousers_cBottom,
+     natives.cNeck AS trousers_cFlap,
+     natives.cBurst AS cArmhole,
+     natives.iNumber AS trousers_iNumber,
+     natives.dDeposit AS trousers_dDeposit,
+     natives.dBalance AS trousers_dBalance,
+     natives.dTotalAmount AS trousers_dTotalAmount,
+     natives.dDateofCollection AS trousers_dDateofCollection,
+     customers.vFirstName AS customers_vFirstName,
+     customers.vLastName AS customers_vLastName,
+     customers.vAddress AS customers_vAddress,
+     customers.cPhone AS customers_cPhone,
+     styles.vStyleName AS styles_A_vStyleName,
+     styles.vImage AS styles_A_vImage
+FROM
+     natives INNER JOIN
+     customers ON natives.cCustomerId = customers.cCustomerId INNER JOIN
+     styles ON natives.cStyleId = styles.cStyleId WHERE natives.cNativeId = $P{nativeId}]]>
+	</queryString>
+	<field name="customers_vFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customers_vLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customers_vAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customers_cPhone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="styles_A_vStyleName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="styles_A_vImage" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cTrouserId" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cLength" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cThight" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cWaist" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cLap" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cKnee" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cHip" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cBottom" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_cFlap" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cArmhole" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_iNumber" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_dDeposit" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_dBalance" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_dTotalAmount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="trousers_dDateofCollection" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="74" height="62"/>
+				<imageExpression class="java.lang.String"><![CDATA["coffee.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="170" y="0" width="263" height="62"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[AmeenSub]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="219" y="62" width="196" height="43"/>
+				<textElement>
+					<font fontName="Times New Roman" size="27" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Fashion]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="572" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="108" y="188" width="162" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cTrouserId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="217" width="129" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cLength}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="247" width="129" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cThight}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="278" width="134" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cWaist}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="303" width="134" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cLap}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="332" width="134" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cKnee}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="358" width="134" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cHip}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="384" width="134" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cBottom}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="412" width="134" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{trousers_cFlap}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="434" width="134" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cArmhole}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="109" y="458" width="134" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{trousers_iNumber}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="415" y="188" width="137" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{trousers_dDeposit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="415" y="217" width="137" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{trousers_dBalance}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="415" y="247" width="137" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{trousers_dTotalAmount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="130" y="485" width="196" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{trousers_dDateofCollection}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="76" y="88" width="200" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{styles_A_vStyleName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="391" y="47" width="149" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{customers_cPhone}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="77" y="66" width="459" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{customers_vAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="1" y="47" width="67" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="158" y="47" width="85" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{customers_vLastName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="76" y="47" width="70" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{customers_vFirstName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="1" y="67" width="67" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="311" y="47" width="68" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Phone No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="2" y="88" width="48" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Style]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1" y="188" width="75" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Native Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="3" y="217" width="70" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Length]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="2" y="247" width="70" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Shoulder]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="278" width="75" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Sleeve]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="303" width="75" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[R/S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="3" y="332" width="75" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Back]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="358" width="70" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Thight]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="384" width="70" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Bottom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="3" y="412" width="73" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Neck]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="3" y="458" width="73" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="311" y="188" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Deposit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="311" y="217" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="311" y="247" width="89" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="3" y="485" width="110" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Date of Collection]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="0" y="1" width="146" height="22" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Customer Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="0" y="154" width="170" height="22" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Measurement Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="309" y="154" width="196" height="22" forecolor="#000000"/>
+				<textElement>
+					<font fontName="Times New Roman" isBold="true" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Payment Details]]></text>
+			</staticText>
+			<image>
+				<reportElement x="311" y="81" width="104" height="61"/>
+				<imageExpression class="java.lang.String"><![CDATA["..\\styles\\"+$F{styles_A_vImage}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Column header" x="3" y="437" width="73" height="15" forecolor="#736343"/>
+				<textElement/>
+				<text><![CDATA[Burst]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
